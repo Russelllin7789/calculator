@@ -45,12 +45,12 @@ class Calculator extends Component {
       },
       {
         index: 10,
-        number: ''
+        number: 'C'
       },
-      {
-        index: 11,
-        number: ''
-      }
+      // {
+      //   index: 11,
+      //   number: ''
+      // }
     ],
     total: 0,
     title: 'React Calculator'
@@ -59,20 +59,20 @@ class Calculator extends Component {
   render() {
     return (
       <div className='outer-container'>
-        <h1 className='text-3xl font-bold mb-4 mt-4 pb-4 pt-8 text-center text-white'>{this.state.title}</h1>
+        <h1 className='title'>{this.state.title}</h1>
         <div className="all-container">
-          <div className="calculate-result-area total">{this.state.total}</div>
+          <div className="total">{this.state.total}</div>
           <div className="calculate-area">
             <div className="plus-minus-mutiply-divide-area">
-              <div className="plus calculation">+</div>
-              <div className="minus calculation">-</div>
-              <div className="multiply calculation">x</div>
-              <div className="divide calculation">/</div>
+              <button className="plus calculation">+</button>
+              <button className="minus calculation">-</button>
+              <button className="multiply calculation">x</button>
+              <button className="divide calculation">/</button>
             </div>
             <div className="number-area">
               {
                 this.state.numbers.map((number) => {
-                  return <div className='btn' key={number.index}>{number.number}</div>
+                  return <button className={`btn number-${number.index}`} key={number.index}>{number.number}</button>
                 })
               }
             </div>
