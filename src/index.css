@@ -15,9 +15,38 @@ code {
     monospace;
 }
 
+.outer-container {
+  @apply mx-4 bg-slate-800 rounded-3xl shadow-lg hover:shadow-gray-500;
+}
+
 .btn {
-  @apply py-4 px-4 mx-4 mt-4 mb-1 font-bold rounded bg-slate-300 text-center;
-  width: 100%;
+  @apply py-4 px-4 mx-4 mt-4 font-bold rounded bg-slate-300 text-center text-xl;
+  width: 90%
+}
+
+.total {
+  @apply py-2 px-4 text-right font-bold bg-yellow-200 text-2xl rounded-lg;
+  width: 75%
+}
+
+.calculation {
+  @apply py-4 px-10 mt-4 font-bold rounded bg-slate-300 text-center text-xl;
+}
+
+.number-area {
+  @apply grid grid-cols-3 my-4 mx-4;
+}
+
+.calculate-area {
+  @apply flex justify-center mb-4;
+}
+
+.plus-minus-mutiply-divide-area {
+  @apply px-2 my-4;
+}
+
+.all-container {
+  @apply flex flex-col items-center
 }
 
 @tailwind utilities;
