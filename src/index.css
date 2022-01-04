@@ -16,7 +16,8 @@ code {
 }
 
 .btn {
-  @apply py-4 px-4 mx-4 my-4 font-bold rounded bg-slate-300 w-px;
+  @apply py-4 px-4 mx-4 mt-4 mb-1 font-bold rounded bg-slate-300 text-center;
+  width: 100%;
 }
 
 @tailwind utilities;

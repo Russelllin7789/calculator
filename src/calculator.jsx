@@ -58,7 +58,7 @@ class Calculator extends Component {
     return (
       <div>
         <h1 className='text-3xl font-bold underline'>Hello Calculator!</h1>
-        <div className="number-area">
+        <div className="number-area" style={{ display: "grid", gridTemplateColumns: 'repeat(3, 1fr)' }}>
           {
             this.state.numbers.map((number) => {
               return <div className='btn' key={number.index}>{number.number}</div>
