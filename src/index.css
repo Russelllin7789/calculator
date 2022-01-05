@@ -64,6 +64,10 @@ code {
   @apply col-span-2;
 }
 
+.calculator-pic {
+  @apply rounded-b-3xl;
+}
+
 .all-container {
   @apply flex flex-col items-center;
 }
