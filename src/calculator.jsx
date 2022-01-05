@@ -47,35 +47,82 @@ class Calculator extends Component {
         index: 10,
         number: 'C'
       },
-      // {
-      //   index: 11,
-      //   number: ''
-      // }
     ],
+    title: 'React Calculator',
     total: 0,
-    title: 'React Calculator'
+    arithmetic: '',
   }
 
   handleNumber = (e) => {
-    console.log(e.target.textContent)
+    let target = e.target.textContent
+    console.log('target:', target)
+    if (target !== 'C') {
+      // handle user click number rather than 'C'
+      target = Number(target)
+      if (this.state.arithmetic === '') {
+        return
+      } else {
+        if (this.state.arithmetic === '+') {
+          this.setState({
+            ...this.state,
+            total: this.state.total += target
+          }, console.log('total:', this.state.total))
+        }
+        if (this.state.arithmetic === '-') {
+          this.setState({
+            ...this.state,
+            total: this.state.total -= target
+          }, console.log('total:', this.state.total))
+        }
+        if (this.state.arithmetic === 'x') {
+          this.setState({
+            ...this.state,
+            total: this.state.total *= target
+          }, console.log('total:', this.state.total))
+        }
+        if (this.state.arithmetic === '/') {
+          this.setState({
+            ...this.state,
+            total: this.state.total /= target
+          }, console.log('total:', this.state.total))
+        }
+      }
+    } else {
+      // handle user click 'C'
+      this.setState({
+        ...this.state,
+        total: 0
+      })
+    }
+  }
+
+  setArithmetic = (e) => {
+    const calculator = e.target.textContent
+
+    this.setState({ ...this.state, arithmetic: calculator },
+      console.log('calculator:', calculator))
   }
 
   render() {
+    const { title, total, numbers, arithmetic } = this.state
     return (
       <div className='outer-container'>
-        <h1 className='title'>{this.state.title}</h1>
+        <h1 className='title'>{title}</h1>
         <div className="all-container">
-          <div className="total">{this.state.total}</div>
+          <div className="show-area">
+            <div className="total">{total}</div>
+            <div className="arithmetic">{arithmetic}</div>
+          </div>
           <div className="calculate-area">
             <div className="plus-minus-mutiply-divide-area">
-              <button className="plus calculation">+</button>
-              <button className="minus calculation">-</button>
-              <button className="multiply calculation">x</button>
-              <button className="divide calculation">/</button>
+              <button className="plus calculation" onClick={this.setArithmetic}>+</button>
+              <button className="minus calculation" onClick={this.setArithmetic}>-</button>
+              <button className="multiply calculation" onClick={this.setArithmetic}>x</button>
+              <button className="divide calculation" onClick={this.setArithmetic}>/</button>
             </div>
             <div className="number-area">
               {
-                this.state.numbers.map((number) => {
+                numbers.map((number) => {
                   return <button className={`btn number-${number.index}`} onClick={this.handleNumber} key={number.index}>{number.number}</button>
                 })
               }
