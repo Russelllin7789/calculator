@@ -56,6 +56,10 @@ class Calculator extends Component {
     title: 'React Calculator'
   }
 
+  handleNumber = (e) => {
+    console.log(e.target.textContent)
+  }
+
   render() {
     return (
       <div className='outer-container'>
@@ -72,7 +76,7 @@ class Calculator extends Component {
             <div className="number-area">
               {
                 this.state.numbers.map((number) => {
-                  return <button className={`btn number-${number.index}`} key={number.index}>{number.number}</button>
+                  return <button className={`btn number-${number.index}`} onClick={this.handleNumber} key={number.index}>{number.number}</button>
                 })
               }
             </div>
