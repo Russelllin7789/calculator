@@ -135,7 +135,7 @@ class Calculator extends Component {
             </div>
           </div>
           <div className="picture-area">
-            <img src="https://www.freepik.com/free-vector/calculator-concept-illustration_6982904.htm#query=calculate&position=3&from_view=author" alt="" className="src" />
+            <img className="calculator-pic" src="https://i.imgur.com/NaFTHW4.jpg" alt="calculator" />
           </div>
         </div>
       </div>
